@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Komentar</title>
+</head>
+<body>
+  
+  <div id="app">
+    <div>
+      <comment-component
+        v-for="comment in comments" :comment="comment"
+      >
+      </comment-component>
+      <textarea 
+        v-model="new_comments" @keyup.enter="postComment" cols="100" rows="10"></textarea>
+    </div>
+  </div>
+
+  <template id="comment-template">
+    <div>
+      <button type="button" @click="plus">+</button>
+      <div>
+        {{ comment.isi }} || {{ comment.waktu }} || Score : {{ score }}
+      </div>
+      <button type="button" @click="minus">-</button>
+      <br><br><br>
+    </div>
+  </template>
+
+  <!-- development version, includes helpful console warnings -->
+  <script src="assets/vendor/vue.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
